@@ -27,7 +27,7 @@ app.use(express.json());
 
 // get router
 app.get("/", function (req, res) {
-  console.log("this is to get the no of kidneys" + "get router");
+  console.log("this is to get the no of kidneys" + " get router");
   const aryanKidneys1 = users[0].kidneys;
   const noOfKidneys = users[0].kidneys.length;
   let healthyKidney = 0;
@@ -50,7 +50,7 @@ app.get("/", function (req, res) {
 
 // post router
 app.post("/", function (req, res) {
-  console.log(req.body + "post router")
+  console.log(req.body + " post router")
   const ishealthy = req.body.ishealthy;
   users[0].kidneys.push({
     healthy: ishealthy
@@ -73,5 +73,25 @@ app.put("/", function (req, res) {
   })
 })
 // end of put router
+
+// delete router
+app.delete("/", function (req, res) {
+  const newKidneysArray = [];
+  for (let i = 0; i < users[0].kidneys.length; i++) {
+    if (users[0].kidneys[i].healthy) {
+      newKidneysArray.push({
+        healthy: true
+      })
+    }
+    else {
+      "no unhealthy kidneys to delete"
+    }
+  }
+  users[0].kidneys = newKidneysArray;
+  res.json({
+    msg: "deleted all the unhealthy kidneys" + " delete  router"
+  })
+})
+//
 
 app.listen(3000);
