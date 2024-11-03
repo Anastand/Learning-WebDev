@@ -4,12 +4,13 @@ const users = [{
   name: "aryan",
   age: 25,
   gender: "male",
-  kidneys: [{
-    healthy: true
-  },
-  {
-    healthy: false
-  }],
+  kidneys: [
+    {
+      healthy: true
+    },
+    {
+      healthy: false
+    }],
 }]
 const app = express();
 
@@ -26,7 +27,7 @@ app.use(express.json());
 // })
 
 // get router
-app.get("/", function (req, res) {
+app.get("/",  (req, res)=> {
   console.log("this is to get the no of kidneys" + " get router");
   const aryanKidneys1 = users[0].kidneys;
   const noOfKidneys = users[0].kidneys.length;
