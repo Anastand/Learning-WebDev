@@ -1,5 +1,3 @@
-//
-
 const express = require("express");
 const app = express();
 let users = []
@@ -57,7 +55,7 @@ const mehandler = (req, res) => {
     res.json({
       MSG: "you are verified, here is your cred",
       username: user_verfication.username,
-      password:user_verfication.password,
+      password: user_verfication.password,
     })
   }
   else {
